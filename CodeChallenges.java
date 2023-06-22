@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class CodeChallenges {
@@ -20,6 +21,18 @@ public class CodeChallenges {
     return Math.abs(diagonalOne - diagonalTwo); 
   }
   
+  public static int LonelyInteger(List<Integer> arr){
+    HashSet<Integer> set = new HashSet<>();
+    for(Integer num: arr){
+      if(set.contains(num)){
+        set.remove(num);
+      } else {
+        set.add(num);
+      }
+    }
+    return set.iterator().next();
+  }
+
   public static void main(String[] args) {
     List<List<Integer>> arr = new ArrayList<>();
     arr.add(List.of(1, 2, 3));
