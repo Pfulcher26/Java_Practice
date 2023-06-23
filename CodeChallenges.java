@@ -4,6 +4,28 @@ import java.util.List;
 
 public class CodeChallenges {
 
+  public static List<Integer> compareTriplets(List<Integer> a, List<Integer> b){
+    
+    List<Integer> aliceScores = a;
+    List<Integer> bobScores = b; 
+    List<Integer> totals = new ArrayList<>(List.of(0, 0));
+
+    for(int i = 0; i < a.size(); i++){
+      if(aliceScores.get(i) > bobScores.get(i)){
+         int value = totals.get(0);
+         value ++; 
+         totals.set(0, value);
+      } else {
+        int value = totals.get(1);
+        value ++; 
+        totals.set(1, value);
+      }
+    }
+
+    return totals;
+
+  }
+
   public static int diagonalDifference(List<List<Integer>> arr) {
     int diagonalOne = 0;
     int diagonalTwo = 0;
