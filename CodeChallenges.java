@@ -1,8 +1,61 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
 public class CodeChallenges {
+
+  public static void countApplesAndOranges(int s, int t, int a, int b, List<Integer> apples, List<Integer> oranges) {
+    List<Integer> appleDistances = new ArrayList<>();
+    List<Integer> orangeDistances = new ArrayList<>();
+    int appleCount = 0;
+    int orangeCount = 0;
+
+    for (int apple : apples) {
+        int newDistance = apple + a;
+        appleDistances.add(newDistance);
+    }
+
+    for (int orange : oranges) {
+        int newDistance = orange + b;
+        orangeDistances.add(newDistance);
+    }
+
+    for (int num : appleDistances) {
+        if (num >= s && num <= t) {
+            appleCount++;
+        }
+    }
+
+    for (int num : orangeDistances) {
+        if (num >= s && num <= t) {
+            orangeCount++;
+        }
+    }
+
+    System.out.println(appleCount);
+    System.out.println(orangeCount);
+}
+
+
+  public static void minMaxSum(List<Integer> arr){
+    int minSum = 0;
+    int maxSum = 0;
+
+    Collections.sort(arr);
+
+    for(int i = 0; i < arr.size() - 1; i++){
+      int value = arr.get(i);
+      minSum += value;
+    }
+
+    maxSum = minSum - arr.get(0) + arr.get(arr.size() - 1);
+
+    System.out.println("The minimum sum is " + minSum + " and the maximum sum is " + maxSum);
+
+  }
+
+
 
   public static List<Integer> compareTriplets(List<Integer> a, List<Integer> b){
     
