@@ -5,6 +5,30 @@ import java.util.List;
 
 public class CodeChallenges {
 
+  public static List<Integer> breakingRecords(List<Integer> scores) {
+        int minScore = scores.get(0);
+        int maxScore = scores.get(0);
+        int minScoreTally = 0;
+        int maxScoreTally = 0;
+        List<Integer> recordArray = new ArrayList<>(List.of(0,0));
+        
+        for(int score: scores) {
+            if(score < minScore){
+                minScore = score; 
+                minScoreTally++;  
+            } 
+            if(score > maxScore){
+                maxScore = score; 
+                maxScoreTally++;
+            }
+        }
+        
+        recordArray.set(0, minScoreTally);
+        recordArray.set(1, maxScoreTally);
+        
+        return recordArray;
+    }
+
   public static void countApplesAndOranges(int s, int t, int a, int b, List<Integer> apples, List<Integer> oranges) {
     List<Integer> appleDistances = new ArrayList<>();
     List<Integer> orangeDistances = new ArrayList<>();
