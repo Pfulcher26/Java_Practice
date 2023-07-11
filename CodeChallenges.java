@@ -134,6 +134,17 @@ public class CodeChallenges {
     return set.iterator().next();
   }
 
+  public static String pangram(String sentence){
+    String alphabet = "abcdefghijklmnopqrstuvwxyz";
+    sentence = sentence.toLowerCase();
+    for(char c: alphabet.toCharArray()){
+      if(sentence.indexOf(c) == -1){
+        return "not pangram";
+      }
+    }
+    return "pangram";
+  }
+
   public static int[] countingSort(int[] arr){
     int[] frequencyArr = new int[100];
     for(int i = 0; i < arr.length; i++){
