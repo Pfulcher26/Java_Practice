@@ -160,7 +160,33 @@ public class CodeChallenges {
         arr[i] = i;
     }
     return arr;
-}
+  }
+
+  public int findLength(int[] nums, int k) {
+    //initialize let pointer
+    int left = 0;
+    //initialize current sum 
+    int current = 0; 
+    //intialize answer
+    int answer = 0;
+
+    //loop through nums initialize right to 0, instead of i
+    for(int right = 0; right < nums.length; right++){
+      //add nums at the right index to current sum 
+      current += nums[right];
+      //while current is greater than k
+      while(current > k){
+        //subtract nums at left index from current
+        current -= nums[left];
+        //increment left
+        left++;
+      }
+      //assign answer to the maximum value of answer and the length of the window
+      answer = Math.max(answer, left - right + 1);
+    }
+    //return the answer 
+    return answer; 
+  }
 
   public static void main(String[] args) {
     List<List<Integer>> arr = new ArrayList<>();
