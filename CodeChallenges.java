@@ -188,6 +188,35 @@ public class CodeChallenges {
     return answer; 
   }
 
+    public boolean[] answersQueries(int[] nums, int[][] queries, int limit){
+      // create a prefix array for our prefix sums
+      int[] prefix = new int[nums.length];
+      // set the first element to 0
+      prefix[0] = 0;
+      // iterate over the prefix array from the first element 
+      // and add the next sum in the sequence
+      for(int i = 1; i < nums.length; i++){
+        prefix[i] = nums[i] + prefix[i - 1];
+      }
+
+      // create an ans boolean array of equal size to the queries array
+      boolean[] answer = new boolean[queries.length];
+      // iterate over the length of the queries array 
+      for(int i = 0; i < queries.length; i++){
+      // set int x to queries at the index at 0
+      int x = queries[i][0];
+      // set int y to the queries at the index at 1
+      int y = queries[i][1];
+      // define and set a current variable to the value of 
+      // prefix at y minus prefix x + nums at x 
+      int current = prefix[y] - prefix[x] + nums[x];
+       // set the ans array at the current index to the result of 
+      // is current less than the limit
+      answer[i] = current < limit; 
+      }
+      // return the answer 
+      return answer; 
+    }
 
     public double findMaxAverage(int[] nums, int k) {
 //         declare curr variable to hold the current value
