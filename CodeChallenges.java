@@ -188,6 +188,30 @@ public class CodeChallenges {
     return answer; 
   }
 
+
+    public double findMaxAverage(int[] nums, int k) {
+//         declare curr variable to hold the current value
+        int curr = 0; 
+
+//         iterate over the first four elements of nums array to get curr 
+        for(int i = 0; i < k; i++){
+            curr += nums[i];
+        }
+//         declare a variable of ans to hold the current 
+        double maxAverage = (double) curr/k;; 
+//         iterate over the nums array using k as the starting index 
+        for(int i = k; i < nums.length; i++){
+//         add the current index minus the array at the current index minus k 
+            curr += nums[i] - nums[i - k];
+            double average = (double) curr/k; 
+//         update the ans variable by checking the max of the answer against the current  
+            maxAverage = Math.max(maxAverage, average);
+        }
+//         return the ans 
+    return maxAverage;        
+    }
+
+
   public static void main(String[] args) {
     List<List<Integer>> arr = new ArrayList<>();
     arr.add(List.of(1, 2, 3));
