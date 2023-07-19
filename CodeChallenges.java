@@ -62,6 +62,41 @@ public class CodeChallenges {
 }
 
 
+  public static int waysToSplitAnArray(int[] nums){
+    // initialize answer variable
+    // initialize left section variable
+    // initialize total variable
+
+    // add all nums to the total 
+
+    // loop through the nums array
+    // add nums at index to the left section 
+    // calculate the right section as total minus left section
+    // check if the left section is greater than or equal to the right section
+    // if so increment the answer variable
+
+    // return the answer 
+
+    int answer = 0;
+    int leftSection = 0;
+    int total = 0;
+
+    for(int num: nums){
+      total += num; 
+    }
+
+    for(int i = 0; i < nums.length - 1; i++){
+      leftSection = nums[i];
+      int rightSection = total - leftSection;
+      if(leftSection >= rightSection){
+        answer ++; 
+      }
+    }
+
+    return answer; 
+  }
+
+
   public static void minMaxSum(List<Integer> arr){
     int minSum = 0;
     int maxSum = 0;
